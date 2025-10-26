@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Metal X | Recycling for a Cleaner Tomorrow</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Root Colors for easy customization */
+    :root {
+      --eco-green:#191F2B ;
+      --black-accent: #171718;
+      --background-light:black
+      --font-primary: 'Poppins', sans-serif;
+      --font-secondary: 'Montserrat', sans-serif;
+      --transition-speed: 0.3s;
+    }
+
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-primary);
+      background-color: var(--background-light);
+      color: var(--black-accent);
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: var(--eco-green);
+      transition: color var(--transition-speed);
+    }
+    a:hover,
+    a:focus {
+      color: #145214;
+      outline: none;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background:black;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(4, 4, 4, 0.15);
+    }
+    .logo {
+      font-family: var(--font-secondary);
+      font-weight: 800;
+      font-size: 2rem;
+      letter-spacing: 6px;
+      user-select: none;
+      padding: 15px 25px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      position: relative;
+      text-align: center;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.2);
+    }
+    .logo span {
+      background: linear-gradient(180deg,
+        #FF9933 0%, #FF9933 33%,
+        #FFFFFF 33%, #FFFFFF 66%,
+        #138808 66%, #138808 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+      animation: waveText 3s ease-in-out infinite;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    .logo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,255,255,0.2) 50%,
+        transparent 100%
+      );
+      animation: shimmer 3s infinite;
+      transform: skewX(-15deg);
+    }
+    .logo::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 85%;
+      width: 16px;
+      height: 16px;
+      background: linear-gradient(135deg, #000080, #1a237e);
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.3);
+      transform: translate(-50%, -50%);
+      animation: rotateChakra 4s linear infinite;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .logo:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 40px 0 rgba(0,0,0,0.3);
+      letter-spacing: 8px;
+    }
+    @keyframes waveText {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-4px) rotate(2deg);
+      }
+      75% {
+        transform: translateY(4px) rotate(-2deg);
+      }
+    }
+    .logo span {
+      display: inline-block;
+      animation-duration: 3s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+    .logo span:nth-child(1) { animation-delay: 0.0s; }
+    .logo span:nth-child(2) { animation-delay: 0.1s; }
+    .logo span:nth-child(3) { animation-delay: 0.2s; }
+    .logo span:nth-child(4) { animation-delay: 0.3s; }
+    .logo span:nth-child(5) { animation-delay: 0.4s; }
+    .logo span:nth-child(7) { animation-delay: 0.5s; }
+
+    .logo::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      width: 16px;
+      height: 16px;
+      background: #000080;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: rotateChakra 4s linear infinite;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .logo .chakra-wheel {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      width: 16px;
+      height: 16px;
+      transform: translate(-50%, -50%);
+    }
+    .chakra-spoke {
+      position: absolute;
+      width: 1px;
+      height: 8px;
+      background: #000080;
+      left: 50%;
+      top: 50%;
+      transform-origin: 0 0;
+      animation: rotateChakra 4s linear infinite;
+    }
+    
+    .logo:hover span {
+      animation: none;
+      transform: translateY(-2px);
+      transition: transform 0.3s ease;
+    }
+    @keyframes rotateChakra {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+        box-shadow: 0 0 15px rgba(0,0,128,0.6);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(0,0,128,0.8);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+        box-shadow: 0 0 15px rgba(0,0,128,0.6);
+      }
+    }
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%) skewX(-15deg);
+      }
+      100% {
+        transform: translateX(50%) skewX(-15deg);
+      }
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      font-family: var(--font-secondary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: silver;
+      text-transform: uppercase;
+      padding: 0.25rem 0.5rem;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: width var(--transition-speed);
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      margin-top: 72px; /* Height of fixed header */
+      position: relative;
+      height: 105vh;
+      min-height: 500px;
+      background-color: #222;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    /* Hero background video */
+    .hero video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      filter: brightness(0.4) contrast(1.1);
+    }
+
+  .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  padding: 0 1rem;
+  animation: fadeInUp 1s ease forwards;
+  text-align: center;
+}
+ /* Centered hero image for METALX logo */
+    .centered-img {
+      max-width: 500px;
+      width: 90vw;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+      border-radius: 16px;
+    }
+/* Image styling */
+.metalx-logo {
+  width: 500px;          /* Adjust image width */
+  max-width: 100%;        /* Responsive */
+  margin-bottom: 1rem;    /* Spacing below the logo */
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4)); /* Soft shadow for depth */
+  transition: transform 0.3s ease;
+}
+
+.metalx-logo:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Existing hero text styling */
+.hero-content h1 {
+  font-family: var(--font-secondary);
+  font-size: 3.75rem;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 6px;
+  user-select: none;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  max-width: 440px;
+  margin: 0 auto;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+    /* Animations for fade-in */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    /* ABOUT US */
+    #about h2 {
+      font-family: var(--font-secondary);
+      font-weight: 700;
+      font-size: 2.75rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--eco-green);
+    }
+    #about p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 850px;
+      margin: 0 auto;
+      color: var(--metallic-gray);
+      text-align: center;
+    }
+
+    /* SERVICES */
+    #services h2 {
+      font-family: var(--font-secondary);
+      font-weight: 700;
+      font-size: 2.75rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--eco-green);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 2.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .service-card:hover {
+      box-shadow: 0 12px 25px rgb(0 0 0 / 0.18);
+    }
+    .service-icon {
+      font-size: 3rem;
+      color: var(--eco-green);
+      margin-bottom: 1rem;
+    }
+    .service-title {
+      font-family: var(--font-secondary);
+      font-size: 1.25rem;
+      margin-bottom: 0.7rem;
+      font-weight: 700;
+    }
+    .service-desc {
+      color: var(--metallic-gray);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* GALLERY */
+    #gallery h2 {
+      font-family: var(--font-secondary);
+      font-weight: 700;
+      font-size: 2.75rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--eco-green);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(270px,1fr));
+      gap: 1.25rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgb(0 0 0 / 0.12);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* CONTACT */
+    #contact h2 {
+      font-family: var(--font-secondary);
+      font-weight: 700;
+      font-size: 2.75rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--eco-green);
+    }
+    .contact-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+      border-radius: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .contact-info {
+      flex: 1 1 350px;
+      font-size: 1rem;
+      color: var(--metallic-gray);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-info strong {
+      color: var(--eco-green);
+    }
+    .contact-info a {
+      display: inline-block;
+      margin-top: 0.2rem;
+      color: var(--eco-green);
+      font-weight: 600;
+    }
+    .contact-form {
+      flex: 1 1 450px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      font-family: var(--font-primary);
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--metallic-gray);
+      border-radius: 6px;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: var(--eco-green);
+      outline: none;
+    }
+    textarea {
+      min-height: 120px;
+    }
+    button {
+      background-color: var(--eco-green);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      color: white;
+      font-weight: 700;
+      font-family: var(--font-secondary);
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      align-self: flex-start;
+    }
+    button:hover {
+      background-color: #1b4b1b;
+    }
+
+    /* GOOGLE MAP & WhatsApp button container */
+    .contact-map {
+      width: 100%;
+      height: 300px;
+      margin-top: 2rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgb(0 0 0 / 0.15);
+    }
+
+    /* Whatsapp floating button */
+.whatsapp-btn {
+  position:fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+/* Optional: Hover animation */
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* WhatsApp icon */
+.whatsapp-icon {
+  width: 32px;
+  height: 32px;
+  fill: white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .whatsapp-btn {
+    bottom: 15px;
+    right: 15px;
+    width: 55px;
+    height: 55px;
+  }
+
+  .whatsapp-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+/* body {
+  overflow-x: hidden;
+  margin: 0;
+  padding:0;
+} */
+
+    /* FOOTER */
+    footer {
+      background-color: var(--metallic-gray);
+      color: white;
+      text-align: center;
+      padding: 1rem 1rem;
+      font-family: var(--font-primary);
+      margin-top: 4rem;
+      user-select: none;
+    }
+    .social-links {
+      margin: 1rem 0 0.5rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .social-links a {
+      color: white;
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: var(--eco-green);
+    }
+    .social-links img {
+      width: 1.3em;
+      height: 1.3em;
+      vertical-align: middle;
+      display: inline-block;
+      object-fit: contain;
+      filter: grayscale(0.2) brightness(1.1);
+      transition: filter 0.3s;
+    }
+    .social-links img:hover {
+      filter: grayscale(0) brightness(1.2) drop-shadow(0 2px 6px rgba(0,0,0,0.15));
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      nav {
+        gap: 1rem;
+      }
+      .contact-container {
+        flex-direction: column;
+      }
+      .contact-info, .contact-form {
+        flex: unset;
+        width: 100%;
+      }
+      .gallery-grid img {
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER: LOGO + NAVIGATION -->
+  <header>
+    <div class="logo" aria-label="Metal X logo">
+      <span>M</span><span>E</span><span>T</span><span>A</span><span>L</span><span>&nbsp;</span><span>X</span>
+      <div class="chakra-wheel">
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const chakraWheel = document.querySelector('.chakra-wheel');
+            for(let i = 0; i < 24; i++) {
+              const spoke = document.createElement('div');
+              spoke.className = 'chakra-spoke';
+              spoke.style.transform = `rotate(${i * 15}deg)`;
+              chakraWheel.appendChild(spoke);
+            }
+          });
+        </script>
+      </div>
+    </div>
+    </div>
+    <nav role="navigation" aria-label="Primary navigation">
+      <a href="#home" tabindex="1">Home</a>
+      <a href="#about" tabindex="2">About Us</a>
+      <a href="#services" tabindex="3">Services</a>
+      <a href="#gallery" tabindex="4">Gallery</a>
+      <a href="#contact" tabindex="5">Contact</a>
+    </nav>
+  </header>
+  <!-- HERO SECTION with centered logo image -->
+  <section class="hero" id="home" aria-label="Hero section with logo" style="background: #23272f; min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+    <img src="metalx_resized_900x968.png" alt="METALX Logo" class="centered-img" />
+  </section>
+   
+
+  <!-- ABOUT US SECTION -->
+  <section id="about" tabindex="0">
+    <h2>About Metal X</h2>
+    <p>
+      Metal X is a pioneering leader in scrap metal and plastic recycling, committed to transforming waste into sustainable resources.
+      Our vision is to create a cleaner planet by reducing environmental footprints through innovative recycling technologies.
+      We focus on eco-friendly initiatives and provide top-quality services in scrap collection, processing, and responsible waste management.
+      With decades of industry expertise, Metal X guarantees reliability, efficiency, and commitment to a greener future.
+    </p>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" tabindex="0">
+    <h2>Our Services</h2>
+    <div class="services-grid" role="list">
+      <!-- Service Item 1 -->
+      <div class="service-card" role="listitem" tabindex="0" aria-label="Metal scrap collection">
+        <div class="service-icon" aria-hidden="true">🔩</div>
+        <h3 class="service-title">ferrous and non ferrous</h3>
+        <p class="service-desc">
+          We efficiently collect and manage scrap metals from industries and households, ensuring proper sorting and maximum reuse.
+        </p>
+      </div>
+      <!-- Service Item 2 -->
+      <div class="service-card" role="listitem" tabindex="0" aria-label="Plastic recycling">
+        <div class="service-icon" aria-hidden="true">♻️</div>
+        <h3 class="service-title">Plastic Recycling</h3>
+        <p class="service-desc">
+          Advanced recycling processes convert plastic waste into reusable materials, reducing landfill impact and pollution.
+        </p>
+      </div>
+      <!-- Service Item 3 -->
+      <div class="service-card" role="listitem" tabindex="0" aria-label="Industrial waste management">
+        <div class="service-icon" aria-hidden="true">🏭</div>
+        <h3 class="service-title">Industrial Waste Management</h3>
+        <p class="service-desc">
+          Specialized handling and disposal of industrial waste ensuring regulatory compliance and environmental safety.
+        </p>
+      </div>
+      <!-- Service Item 4 -->
+      <div class="service-card" role="listitem" tabindex="0" aria-label="Logistics services">
+        <div class="service-icon" aria-hidden="true">🚛</div>
+        <h3 class="service-title">Logistics & Transportation</h3>
+        <p class="service-desc">
+          Reliable and eco-conscious transport solutions for waste and recycled materials to optimize the supply chain.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section id="gallery" tabindex="0" aria-label="Gallery of recycling operations and facilities">
+    <h2>Gallery</h2>
+    <div class="gallery-grid" role="list">
+      <img src="aliminium casting.jpg" alt="" role="listitem" tabindex="0" />
+      <img src="aluminium wires.jpg" alt="Plastic recycling process" role="listitem" tabindex="0" />
+      <img src="copper wires.jpg" alt="Industrial waste sorting equipment" role="listitem" tabindex="0" />
+      <img src="IRON SCRAP.jpg" alt="Metal scrap processing machines" role="listitem" tabindex="0" />
+      <img src="IRON.jpg" alt="Recycling logistics vehicles" role="listitem" tabindex="0" />
+      <img src="PLASTIC.jpg" alt="Eco-friendly recycling signage" role="listitem" tabindex="0" />
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" tabindex="0">
+    <h2>Contact Us</h2>
+    <div class="contact-container">
+      <!-- Contact Info -->
+      <div class="contact-info" aria-label="Company contact details">
+        <p><strong>Email:</strong><br /><a href="mailto:wrt2metalx@gmail.com">wrt2metalx@gmail.com</a></p>
+        <p><strong>Phone:</strong><br /><a href="tel:+91 97666 63741">+91 97666 63741<br>+91 8830610038<br>+91 8857018540</a></p>
+        <p><strong> Office Address:</strong><br />kadbi Mandi,Gorakshan Road, Parbhani. </p>
+        <p><strong>Follow Us:</strong></p>
+        <div class="social-links" aria-label="Social media links"> 
+         <a href="https://www.instagram.com/metalxllp"><img src="ins.jpg" alt="Instagram" /></a>
+          <a href="https://www.facebook.com/metalx" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘</a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <section id="contact" class="contact-section">
+  <div class="contact-form">
+    <form 
+      id="contactForm" 
+      name="contact" 
+      method="POST" 
+      data-netlify="true" 
+      aria-label="Contact form"
+    >
+      <!-- Hidden input required by Netlify -->
+      <input type="hidden" name="form-name" value="contact" />
+
+      <label for="name">Name</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        placeholder="Your full name" 
+        required 
+        aria-required="true"
+      />
+
+      <label for="email">Email</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        placeholder="your.email@example.com" 
+        required 
+        aria-required="true"
+      />
+
+      <label for="message">Message</label>
+      <textarea 
+        id="message" 
+        name="message" 
+        placeholder="Write your message here..." 
+        required 
+        aria-required="true"
+      ></textarea>
+
+      <button type="submit" aria-label="Send message">Send Message</button>
+    </form>
+  </div>
+      </section>
+    <!-- Google Map Embed -->
+    <div class="contact-map" aria-label="Google map location of Metal X">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2968.4325985226637!2d76.76874908697728!3d19.266696577330876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd01901ea2caf89%3A0x30e152a2047c3cfd!2sMadina%20Traders%20Steel%20and%20Aluminium!5e0!3m2!1sen!2sin!4v1761373861877!5m2!1sen!2sin"
+        width="100%"
+        height="100%"
+        frameborder="0"
+        style="border: 0;"
+        allowfullscreen=""
+        loading="lazy"
+        tabindex="0"
+        title="Google Map of Metal X location"
+      ></iframe>
+    </div>
+
+  <!-- WhatsApp Floating Button -->
+
+  <a
+    href="https://wa.me/919766663741"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-btn"
+    aria-label="Chat with Metal X on WhatsApp"
+  >
+    <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20.463 3.488C18.217 1.24 15.231 0 12.05 0 5.495 0 0.16 5.334 0.16 11.893c0 2.096 0.547 4.142 1.588 5.945L0.057 24l6.305-1.654c1.737 0.947 3.7 1.447 5.683 1.448h0.005c6.554 0 11.89-5.335 11.89-11.893 0-3.181-1.24-6.167-3.487-8.413zm-8.413 18.307h-0.004c-1.775 0-3.515-0.477-5.033-1.378l-0.361-0.214-3.741 0.981 0.999-3.648-0.235-0.374c-0.99-1.574-1.512-3.393-1.511-5.269 0-5.45 4.437-9.884 9.893-9.884 2.64 0 5.122 1.03 6.988 2.898 1.866 1.869 2.893 4.352 2.892 6.993-0.003 5.45-4.44 9.885-9.887 9.885zm5.42-7.403c-0.298-0.149-1.765-0.87-2.038-0.967-0.273-0.099-0.472-0.149-0.67 0.148-0.198 0.298-0.768 0.967-0.942 1.166-0.174 0.198-0.347 0.223-0.645 0.074-0.298-0.149-1.258-0.463-2.396-1.475-0.886-0.788-1.483-1.762-1.656-2.059-0.174-0.298-0.019-0.458 0.13-0.606 0.134-0.133 0.298-0.347 0.446-0.521 0.149-0.174 0.198-0.298 0.298-0.497 0.099-0.198 0.05-0.372-0.025-0.521-0.075-0.149-0.669-1.612-0.917-2.207-0.242-0.579-0.487-0.501-0.669-0.51-0.174-0.008-0.372-0.010-0.571-0.010-0.198 0-0.521 0.074-0.793 0.372-0.273 0.298-1.041 1.017-1.041 2.479 0 1.463 1.065 2.876 1.213 3.074 0.149 0.198 2.096 3.2 5.077 4.487 0.709 0.306 1.262 0.489 1.694 0.625 0.712 0.227 1.36 0.195 1.871 0.118 0.571-0.085 1.758-0.719 2.006-1.413 0.248-0.694 0.248-1.289 0.174-1.413-0.074-0.124-0.273-0.198-0.571-0.347z"/>
+    </svg>
+  </a>
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div>© 2025 Metal X. All Rights Reserved.</div>
+  </footer>
+
+  <!-- Minimal JS for smooth UX -->
+  <script>
+    // Fade-in animation for new sections on scroll
+    document.addEventListener('DOMContentLoaded', function () {
+      const sections = document.querySelectorAll('section');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'none';
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      sections.forEach((section) => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        observer.observe(section);
+      });
+
+      // Contact Form Submit: simple client-side validation demo to enhance UX
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Thank you for reaching out! We will get back to you shortly.');
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>
